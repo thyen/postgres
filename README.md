@@ -9,7 +9,7 @@ starts a postgres container. if one doesn't exist, it creates it, downloading
 the postgres image if necessary.
 
 #### options:
-- `name` *alias: `n`, default: `gan-postgres`*: specifies the name of the
+- `name` *alias: `n`, default: `knorm-postgres`*: specifies the name of the
   postgres container.
 - `port`:  *alias: `p`, default: `5616`*: specifies the port to bind to
 
@@ -28,7 +28,7 @@ the container:
 stops a running postgres container.
 
 #### options:
-- `name` *alias: `n`, default: `gan-postgres`*: specifies the name of the
+- `name` *alias: `n`, default: `knorm-postgres`*: specifies the name of the
   postgres container.
 
 ### knorm-postgres remove
@@ -36,5 +36,5 @@ stops a running postgres container.
 removes a running/stopped postgres container.
 
 #### options:
-- `name` *alias: `n`, default: `gan-postgres`*: specifies the name of the
+- `name` *alias: `n`, default: `knorm-postgres`*: specifies the name of the
   postgres container.

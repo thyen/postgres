@@ -80,11 +80,12 @@ const startContainer = container =>
     });
   });
 
-const createContainer = (name, port) =>
+const createContainer = name =>
   new Promise(function(resolve, reject) {
     const env = `-e POSTGRES_USER=${config.user} -e POSTGRES_DB=${config.database} -e POSTGRES_PASSWORD=${config.password}`;
+    const port = `-p ${config.port}:5432`;
+
     name = `--name ${name}`;
-    port = `-p ${port}:5432`;
 
     exec(
       `docker run -d ${name} ${port} ${env} postgres`,
@@ -118,22 +119,16 @@ require('yargs')
         alias: 'n',
         default: 'knorm-postgres',
         describe: 'The name of the postgres container'
-      },
-      port: {
-        alias: 'p',
-        default: 5616,
-        describe: 'The port number to bind to on your machine'
       }
     },
     argv => {
-      const port = argv.port;
       const name = argv.name;
 
       findContainer(name)
         .then(container => {
           if (!container) {
             console.log('creating new postgres container');
-            return createContainer(name, port);
+            return createContainer(name);
           }
           if (container.status.startsWith('Up')) {
             return container;

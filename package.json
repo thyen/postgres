@@ -21,7 +21,7 @@
   "devDependencies": {
     "@knorm/knorm": "github:knorm/knorm",
     "coveralls": "^3.0.0",
-    "eslint": "^4.15.0",
+    "eslint": "^5.0.0",
     "eslint-config-ganintegrity": "^2.0.2",
     "knex": "^0.14.6",
     "mocha": "^5.1.1",

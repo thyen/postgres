@@ -270,6 +270,15 @@ describe('KnormPostgres', () => {
             expect(forSave, 'was called on', instance);
           });
         });
+
+        it(`does not stringify a sting`, () => {
+          const field = new Field({ name: 'foo', model: Model, type: 'json' });
+          expect(
+            field.cast('hello there', null, { forSave: true }),
+            'to equal',
+            'hello there'
+          );
+        });
       });
 
       describe('forFetch', () => {
